@@ -1,0 +1,171 @@
+###############################################################################
+# Full list of tslint rules:
+# https://palantir.github.io/tslint/rules/
+###############################################################################
+
+rules:
+  #########################################################
+  ## TypeScript-specific
+  #########################################################
+
+  # Improves readability and organization by grouping naturally related items together.
+  adjacent-overload-signatures: true
+  # Requires explicit visibility declarations for class members.
+  member-access:
+    - true
+    - check-accessor
+    - check-constructor
+    - check-parameter-property
+  # Enforces member ordering.
+  member-ordering:
+    - true
+    - order:
+        - private-static-field
+        - public-static-field
+        - private-instance-field
+        - public-instance-field
+        - public-constructor
+        - private-constructor
+        - public-instance-method
+        - protected-instance-method
+        - private-instance-method
+  # Forbids empty interfaces.
+  no-empty-interface: true
+  # Disallows internal module
+  # (Using the module keyword leads to a confusion of concepts with
+  # external modules. Use the newer namespace keyword instead.)
+  no-internal-module: true
+  # Disallows /// <reference path=> imports (use ES6-style imports instead).
+  no-reference: true
+  # Warns if a type assertion does not change the type of an expression.
+  no-unnecessary-type-assertion: true
+  # Recommends a ‘for-of’ loop over a standard ‘for’ loop if the
+  # index is only used to access the array being iterated.
+  prefer-for-of: true
+  # Requires or disallows whitespace for type definitions.
+  # Determines if a space is required or not before the colon in a type specifier.
+  typedef-whitespace:
+    - true
+    - call-signature: nospace
+      index-signature: nospace
+      parameter: nospace
+      property-declaration: nospace
+      variable-declaration: nospace
+    - call-signature: onespace
+      index-signature: onespace
+      parameter: onespace
+      property-declaration: onespace
+      variable-declaration: onespace
+  # Warns for any two overloads that could be unified into
+  # one by using a union or an optional/rest parameter.
+  unified-signatures: true
+
+  #########################################################
+  ## Functionality
+  #########################################################
+
+  # Warns for an awaited value that is not a Promise.
+  await-promise: true
+  # Enforces braces for if/for/do/while statements.
+  curly: true
+  # Only allows labels in sensible locations.
+  # This rule only allows labels to be on do/for/while/switch statements.
+  label-position: true
+  # Disallows use of arguments.callee.
+  no-arg: true
+  # Disallows access to the constructors of String, Number, and Boolean.
+  # Disallows constructor use such as new Number(foo) but does not disallow Number(foo).
+  no-construct: true
+  # Warns if ‘super()’ appears twice in a constructor.
+  no-duplicate-super: true
+  # Prevents duplicate cases in switch statements.
+  no-duplicate-switch-case: true
+  # Disallows iterating over an array with a for-in loop.
+  no-for-in-array: true
+  # Disallows unnecessary return await.
+  # An async function always wraps the return value in a Promise.
+  # Using return await just adds extra time before the overreaching
+  # promise is resolved without changing the semantics.
+  no-return-await: true
+  # Forbids array literals to contain missing elements.
+  # Missing elements are probably an accidentally duplicated comma.
+  no-sparse-arrays: true
+  # Flags throwing plain strings or concatenations of strings.
+  no-string-throw: true
+  # Disallows control flow statements, such as return, continue, break and throws
+  # in finally blocks. When used inside finally blocks, control flow statements,
+  # such as return, continue, break and throws override any other control flow
+  # statements in the same try/catch scope. This is confusing and unexpected behavior.
+  no-unsafe-finally: true
+  #Disallows usage of the var keyword.
+  # Use let or const instead.
+  no-var-keyword: true
+  # Requires expressions of type void to appear in statement position.
+  no-void-expression: true
+  # Requires the radix parameter to be specified when calling parseInt.
+  radix: true
+  # Requires === and !== in place of == and !=.
+  triple-equals: true
+  # Prevents blank constructors, as they are redundant.
+  unnecessary-constructor: true
+  # Enforces use of the isNaN() function to check for NaN references
+  # instead of a comparison to the NaN constant.
+  use-isnan: true
+
+  #########################################################
+  ## Maintainability
+  #########################################################
+
+  # Enforces a threshold of cyclomatic complexity.
+  cyclomatic-complexity:
+    - true
+    - 20
+  # Warns when deprecated APIs are used.
+  # Any usage of an identifier with the @deprecated JSDoc annotation will trigger a warning.
+  # See http://usejsdoc.org/tags-deprecated.html
+  deprecation: true
+  # Ensures the file ends with a newline.
+  eofline: true
+  # Enforces indentation with tabs or spaces.
+  indent:
+    - true
+    - tabs
+  # Enforces a consistent linebreak style.
+  linebreak-style:
+    - true
+    - LF
+  # Requires files to remain under a certain number of lines
+  max-file-line-count:
+    - true
+    - 500
+  # Requires lines to be under a certain max length.
+  max-line-length:
+    - true
+    - 120
+  # Disallows default exports in ES6-style modules.
+  # Use named exports instead.
+  no-default-export: true
+  # Disallows
+  no-duplicate-imports: true
+  # Requires that variable declarations use const instead of let and var if possible.
+  prefer-const: true
+  # Requires that private variables are marked as readonly if
+  # they’re never modified outside of the constructor.
+  prefer-readonly: true
+  # Requires or disallows trailing commas in array and object literals, destructuring
+  # assignments, function typings, named imports and exports and function parameters.
+  trailing-comma:
+    - true
+    - multiline: always
+      singleline: never
+
+  #########################################################
+  ## Style
+  #########################################################
+
+  # TODO: Consider using https://palantir.github.io/tslint/rules/align/
+  # align: ?
+  # Requires using either ‘T[]’ or ‘Array' for arrays.
+  array-type:
+    - true
+    - array-simple

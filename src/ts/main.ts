@@ -23,7 +23,7 @@ function main(): void {
 		ctx.rotate(r);
 		{
 			ctx.fillStyle = '#f00';
-			ctx.fillRect(-w/2, -h/2, w, h);
+			ctx.fillRect(-w / 2, -h / 2, w, h);
 		}
 		ctx.rotate(-r);
 		ctx.translate(-x, -y);

@@ -23,13 +23,24 @@ function jsTask(watchMode, taskCallback) {
 			filename: '[name].js',
 			pathinfo: true,
 		},
-		devtool: 'eval-source-map',
+		devtool: 'source-map',
 		resolve: {
 			extensions: ['.ts']
 		},
 		module: {
 			rules: [
-				{test: /\.ts$/, use: 'ts-loader'},
+				{
+					test: /\.ts$/,
+					enforce: 'pre',
+					loader: 'tslint-loader',
+					options: {
+						typeCheck: true,
+					},
+				},
+				{
+					test: /\.ts$/,
+					loader: 'ts-loader',
+				},
 			],
 		},
 	};
