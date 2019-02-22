@@ -1,0 +1,24 @@
+{
+  "private": true,
+  "name": "brosync-client",
+  "version": "0.1.0-beta.0",
+  "author": "Levi Perelman",
+  "scripts": {
+    "build": "gulp        --gulpfile ./build/gulpfile.js --cwd ./",
+    "watch": "gulp watch  --gulpfile ./build/gulpfile.js --cwd ./",
+    "serve": "gulp serve  --gulpfile ./build/gulpfile.js --cwd ./"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "node-sass": "^4.11.0",
+    "run-sequence": "^2.2.1",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.3.3",
+    "webpack": "^4.29.5"
+  }
+}
